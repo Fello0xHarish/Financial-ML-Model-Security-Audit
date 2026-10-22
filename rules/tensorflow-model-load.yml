@@ -1,0 +1,9 @@
+rules:
+  - id: python-tensorflow-model-load
+    languages:
+      - python
+    severity: WARNING
+    message: "Review TensorFlow model loading. Only load trusted model files and verify model provenance."
+    pattern-either:
+      - pattern: tensorflow.keras.models.load_model($PATH)
+      - pattern: tf.keras.models.load_model($PATH)
