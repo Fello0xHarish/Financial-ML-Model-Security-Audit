@@ -1,0 +1,9 @@
+rules:
+  - id: python-unsafe-pickle-load
+    languages:
+      - python
+    severity: ERROR
+    message: "Unsafe pickle deserialization detected."
+    pattern-either:
+      - pattern: pickle.load($FILE)
+      - pattern: pickle.loads($DATA)
